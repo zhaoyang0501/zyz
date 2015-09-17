@@ -23,8 +23,19 @@ import com.pzy.repository.ActionRepository;
 public class ActionService {
      @Autowired
      private ActionRepository actionRepository;
+     @Autowired
+     private WorkerToActionService workerToActionService;
      public List<Action> findAll() {
-          return (List<Action>) actionRepository.findAll();
+    	 List<Action> list=(List<Action>) actionRepository.findAll();
+    	 warpWorkerToAction(list);
+    	 return list;
+    	 
+     }
+     
+     public void warpWorkerToAction(List<Action> actions){
+    	 for(int i=0;i<actions.size();i++){
+    		 actions.get(i).setWorkToActions(workerToActionService.findByAction(actions.get(i)));
+    	 }
      }
      public Page<Action> findAll(final int pageNumber, final int pageSize,final String actionName){
                PageRequest pageRequest = new PageRequest(pageNumber - 1, pageSize, new Sort(Direction.DESC, "id"));
@@ -42,6 +53,8 @@ public class ActionService {
                Page<Action> result = (Page<Action>) actionRepository.findAll(spec, pageRequest);
                return result;
      }
+     
+     
      public void delete(Long id){
           actionRepository.delete(id);
      }

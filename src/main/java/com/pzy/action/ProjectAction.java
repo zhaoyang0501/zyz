@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import com.pzy.entity.News;
+import com.pzy.service.ActionService;
 import com.pzy.service.NewsService;
 /***
  * Introduction
@@ -18,27 +19,25 @@ import com.pzy.service.NewsService;
  */
 @Namespace("/notice")
 @ParentPackage("json-default") 
-public class NoticeAction extends PageAction {
+public class ProjectAction extends PageAction {
 	
-	private Integer page;
-	
-	private List<News> newss;
+	private List<com.pzy.entity.Action> actions;
 	@Autowired
-	private NewsService newsService;
+	private ActionService actionService;
 
-	@Action(value = "notice", results = { @Result(name = "success", location = "/WEB-INF/views/notice.jsp") })
-	public String notice() {
-		Page<News> list = newsService.findAll(page, 20,2);
-		newss=list.getContent();
+	@Action(value = "project", results = { @Result(name = "success", location = "/WEB-INF/views/project.jsp") })
+	public String project() {
+		actions = actionService.findAll();
 		return SUCCESS;
 	}
-	
-	
-	public List<News> getNewss() {
-		return newss;
+
+	public List<com.pzy.entity.Action> getActions() {
+		return actions;
 	}
 
-	public void setNewss(List<News> newss) {
-		this.newss = newss;
+	public void setActions(List<com.pzy.entity.Action> actions) {
+		this.actions = actions;
 	}
+	
+	
 }

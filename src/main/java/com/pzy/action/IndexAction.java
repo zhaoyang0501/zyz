@@ -64,13 +64,7 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	 	tip="成功退出登陆";
 	 	return SUCCESS;
      }
-	@Action(value = "grades", results = { @Result(name = "success", location = "/WEB-INF/views/grades.jsp") })
-	public String grades() throws Exception {
-		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
-		this.grades=grades;
-		users=userService.findByNews(grades);
-		return SUCCESS;
-	}
+	
 	 @Action(value = "dologin", 
 	    		results = { @Result(name = "success" , location = "grades.jsp") ,
 	    					@Result(name = "login", location = "/WEB-INF/views/login.jsp") })  
@@ -94,16 +88,7 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	public String register() throws Exception {
 		return SUCCESS;
 	}
-	@Action(value = "goapply", results = { @Result(name = "success", location = "/WEB-INF/views/index.jsp") })
-	public String goapply() throws Exception {
-		grades.setCreateDate(new Date());
-		grades.setState("未审核");
-		gradesService.save(grades);
-		newss=newsService.findTop3();
-		gradess=gradesService.findTop4();
-		tip="成功提交申请,请等待管理员审核";
-		return SUCCESS;
-	}
+	
 	
 	public Grades getGrades() {
 		return grades;

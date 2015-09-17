@@ -39,7 +39,7 @@
 					<div class="span12">
 						<div class="content-widgets light-gray">
 							<div class="widget-head  bondi-blue" >
-								<h3>物业人员管理</h3>
+								<h3>志愿者管理</h3>
 							</div>
 							<div class="box well form-inline">
 								<span>姓名：</span>

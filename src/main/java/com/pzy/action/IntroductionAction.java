@@ -11,10 +11,14 @@ import org.springframework.data.domain.Page;
 
 import com.pzy.entity.News;
 import com.pzy.service.NewsService;
-
-@Namespace("/news")
+/***
+ * Introduction
+ * @author panchaoyang
+ *
+ */
+@Namespace("/introduction")
 @ParentPackage("json-default") 
-public class NewsAction extends PageAction {
+public class IntroductionAction extends PageAction {
 	
 	private Integer page;
 	
@@ -22,9 +26,9 @@ public class NewsAction extends PageAction {
 	@Autowired
 	private NewsService newsService;
 
-	@Action(value = "news", results = { @Result(name = "success", location = "/WEB-INF/views/news.jsp") })
-	public String news() {
-		Page<News> list = newsService.findAll(page, 20,1);
+	@Action(value = "introduction", results = { @Result(name = "success", location = "/WEB-INF/views/introduction.jsp") })
+	public String introduction() {
+		Page<News> list = newsService.findAll(page, 20,3);
 		newss=list.getContent();
 		return SUCCESS;
 	}

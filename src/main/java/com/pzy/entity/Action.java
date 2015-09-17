@@ -1,12 +1,14 @@
 package com.pzy.entity;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.struts2.json.annotations.JSON;
 
@@ -29,6 +31,14 @@ public class Action {
 	private String addr;
 	private String tel;
 	private String remark;
+	@Transient
+	private List<WorkerToAction> workToActions;
+	public List<WorkerToAction> getWorkToActions() {
+		return workToActions;
+	}
+	public void setWorkToActions(List<WorkerToAction> workToActions) {
+		this.workToActions = workToActions;
+	}
 	public Long getId() {
 		return id;
 	}
