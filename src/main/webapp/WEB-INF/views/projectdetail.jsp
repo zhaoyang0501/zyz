@@ -92,11 +92,7 @@
 								</center>
 							</fieldset>
 							<div style="margin-top: 30px;margin-bottom: 50px;margin-left: 380px;">
-								
-								
-									<input type="button" value="已截止" style="width:62px;height:23px;background:url(/wxzyz/app/images/btn-bg.png) no-repeat;border:0;padding:0;color:#8b5903;cursor:pointer;">
-								
-								&nbsp;&nbsp;<input type="button" value="返　回" onclick="window.history.back();" style="width:62px;height:23px;background:url(/wxzyz/app/images/btn-bg.png) no-repeat;border:0;padding:0;color:#8b5903;cursor:pointer;">
+								<a href="join?id=${project.id }">立即参与 </a>
 							</div>
 						
 						

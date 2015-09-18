@@ -39,7 +39,7 @@
 			</div>
 			<!-- 面包屑 -->
 			<div class="address">
-				目前位置：<a href="" >首页</a><span>></span><span>小区公告</span>
+				目前位置：<a href="" >首页</a><span>></span><span>通知公告</span>
 			</div>
 			<!-- 正文 -->
 			<div class="readbox">

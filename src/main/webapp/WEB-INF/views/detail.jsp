@@ -42,7 +42,7 @@
 			</div>
 			<!-- 面包屑 -->
 			<div class="address">
-				目前位置：<a href="" >首页</a><span>></span><span>${news.type=='1'?"小区新闻":(news.type=='2'?"通知公告"："宣传报道")}</span>
+				目前位置：<a href="" >首页</a><span>></span><span>${news.type=='1'?"新闻动态":(news.type=='2'?"通知公告":"宣传报道")}</span>
 			</div>
 			<!-- 正文 -->
 			<div class="readbox">

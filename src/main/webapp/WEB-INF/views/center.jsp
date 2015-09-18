@@ -52,7 +52,9 @@
 						</ul>
 					</div>
 					<div class="view register">
-							<form action="doregister" id="registerForm" name="registerForm" method="post">
+							<form action="mydocenter" id="registerForm" name="registerForm" method="post">
+							<input value='${sessionScope.user.id}'  class="size1" type="hidden" id="worker.id" name="worker.id" />
+										
 							<div class="error">
 							</div>
 							<div class="class">

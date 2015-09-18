@@ -131,17 +131,6 @@ public class WorkerAction extends PageAction {
 	}
 	@Action(value = "save", results = { @Result(name = "success", location = "/WEB-INF/views/admin/worker/index.jsp") })
 	public String save() {
-			worker.setHeadimg(this.imgPathFileName);
-			/** 文件上传逻辑 */
-			String realpath = ServletActionContext.getServletContext().getRealPath("/upload");
-			File saveImg = new File(new File(realpath), this.imgPathFileName);
-			try {
-				FileUtils.copyFile(imgPath, saveImg);
-			} catch (IOException e) {
-				e.printStackTrace();
-				this.tip="参数错误或者没有选择文件";
-				return SUCCESS;
-			}
 		workerService.save(worker);
 		this.tip="保存成功";
 		return SUCCESS;

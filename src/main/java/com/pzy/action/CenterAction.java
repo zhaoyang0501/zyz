@@ -21,7 +21,7 @@ public class CenterAction extends PageAction {
 	
 	private List<WorkerToAction>  workerToActions;
 	
-	private Worker user;
+	private Worker worker;
 	@Autowired
 	private WorkerService workerService;
 	@Autowired
@@ -33,20 +33,21 @@ public class CenterAction extends PageAction {
 		return SUCCESS;
 	}
 	
-	@Action(value = "docenter", results = { @Result(name = "success", location = "/WEB-INF/views/center.jsp") })
-	public String doregister() throws Exception {
-		workerService.save(user);
-		ActionContext.getContext().getSession().put("user", user);
+	@Action(value = "mydocenter", results = { @Result(name = "success", location = "/WEB-INF/views/center.jsp") })
+	public String mydocenter() throws Exception {
+		workerService.save(worker);
+		ActionContext.getContext().getSession().put("user", worker);
 		tip="用户信息修改成功！";
 		return SUCCESS;
 	}
 	
-	public Worker getUser() {
-		return user;
+	
+	public Worker getWorker() {
+		return worker;
 	}
 
-	public void setUser(Worker user) {
-		this.user = user;
+	public void setWorker(Worker worker) {
+		this.worker = worker;
 	}
 
 	public List<WorkerToAction> getWorkerToActions() {

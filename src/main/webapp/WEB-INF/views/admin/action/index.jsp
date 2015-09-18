@@ -42,7 +42,7 @@
 								<h3>活动管理</h3>
 							</div>
 							<div class="box well form-inline">
-								<span>姓名：</span>
+								<span>活动名称：</span>
 								<input type="text" id="_name" >
 								<a onclick="$.adminAction.initSearchDataTable()"
 									class="btn btn-info" data-loading-text="正在加载..."><i class="icon-search"></i>查询</a>
@@ -56,7 +56,6 @@
 										<tr>
 											<th >id</th>
 											<th >活动名称</th>
-											<th >活动内容</th>
 											<th >活动地址</th>
 											<th >需要人数</th>
 											<th >截止日期</th>
@@ -88,7 +87,7 @@
 				<div class="span12">
 					<div class="form-container grid-form form-background left-align form-horizontal">
 						 <form id='_form'    enctype="multipart/form-data" method="post">
-							<input type="hidden" id="action.id" placeholder="">
+							<input type="hidden" id="id" placeholder="">
 							<div class="control-group">
 								<label for="title" class="control-label">活动名称：</label>
 								<div class="controls">

@@ -31,10 +31,10 @@ jQuery.adminAction = {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
 					"fnServerData" : function(sSource, aoData, fnCallback) {
-						var actionName = $("#_actionName").val();
+						var actionName = $("#_name").val();
 						if (!!actionName) {
 							aoData.push({
-								"name" : "actionName",
+								"name" : "name",
 								"value" : actionName
 							});
 						}
@@ -53,8 +53,6 @@ jQuery.adminAction = {
 					}, {
 						"mDataProp" : "name"
 					}, {
-						"mDataProp" : "context"
-					}, {
 						"mDataProp" : "addr"
 					}, {
 						"mDataProp" : "needMan"
@@ -71,7 +69,7 @@ jQuery.adminAction = {
 					}],
 					"aoColumnDefs" : [
 						{
-							'aTargets' : [10],
+							'aTargets' : [9],
 							'fnRender' : function(oObj, sVal) {
 								return"  <button class=\"btn2 btn-info\" onclick=\"$.adminAction.deleteAction("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>" +
 								" <button class=\"btn2 btn-info\" onclick=\"$.adminAction.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>编辑</button>";

@@ -31,10 +31,10 @@ jQuery.adminWorker = {
 						$('[rel="popover"],[data-rel="popover"]').popover();
 					},
 					"fnServerData" : function(sSource, aoData, fnCallback) {
-						var workerName = $("#_workerName").val();
+						var workerName = $("#_name").val();
 						if (!!workerName) {
 							aoData.push({
-								"name" : "workerName",
+								"name" : "name",
 								"value" : workerName
 							});
 						}
@@ -55,25 +55,23 @@ jQuery.adminWorker = {
 					}, {
 						"mDataProp" : "password"
 					}, {
-						"mDataProp" : "headimg"
-					}, {
 						"mDataProp" : "name"
-					}, {
-						"mDataProp" : "joinDate"
 					}, {
 						"mDataProp" : "sex"
 					}, {
 						"mDataProp" : "tel"
 					}, {
-						"mDataProp" : "type"
+						"mDataProp" : "cardtype"
 					}, {
-						"mDataProp" : "remark"
+						"mDataProp" : "cardid"
+					}, {
+						"mDataProp" : "addr"
 					},{
 						"mDataProp" : ""
 					}],
 					"aoColumnDefs" : [
 						{
-							'aTargets' : [10],
+							'aTargets' : [9],
 							'fnRender' : function(oObj, sVal) {
 								return"  <button class=\"btn2 btn-info\" onclick=\"$.adminWorker.deleteWorker("+oObj.aData.id+")\"><i class=\"icon-trash\"></i> 删除</button>" +
 								" <button class=\"btn2 btn-info\" onclick=\"$.adminWorker.showEdit("+oObj.aData.id+")\"><i class=\"icon-pencil\"></i>编辑</button>";
@@ -130,11 +128,11 @@ jQuery.adminWorker = {
     					$("input[name='worker.username']").val(json.resultMap.object.username);
     					$("input[name='worker.password']").val(json.resultMap.object.password);
     					$("input[name='worker.name']").val(json.resultMap.object.name);
-    					$("input[name='worker.joinDate']").val(json.resultMap.object.joinDate);
+    					$("input[name='worker.addr']").val(json.resultMap.object.addr);
     					$("select[name='worker.sex']").val(json.resultMap.object.sex);
     					$("input[name='worker.tel']").val(json.resultMap.object.tel);
-    					$("input[name='worker.type']").val(json.resultMap.object.type);
-    					$("input[name='worker.remark']").val(json.resultMap.object.remark);
+    					$("input[name='worker.cardtype']").val(json.resultMap.object.cardtype);
+    					$("input[name='worker.cardid']").val(json.resultMap.object.cardid);
     				}else{
     					noty({"text":""+ json.resultMap.msg +"","layout":"top","type":"warning"});
     				}

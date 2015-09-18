@@ -57,13 +57,13 @@
 											<th >id</th>
 											<th >用户名</th>
 											<th >密码</th>
-											<th >头像</th>
 											<th >姓名</th>
-											<th >入职日期</th>
 											<th >性别</th>
 											<th >电话</th>
-											<th >职位</th>
-											<th >个人简介</th>
+											<th >证件类型</th>
+											<th >证件号码</th>
+											<th >地址</th>
+												<th >操作</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -89,11 +89,11 @@
 				<div class="span12">
 					<div class="form-container grid-form form-background left-align form-horizontal">
 						 <form id='_form' action="${pageContext.request.contextPath}/admin/worker/save"   enctype="multipart/form-data" method="post">
-							<input type="hidden" id="worker.id" placeholder="">
+							<input type="hidden" name='worker.id' id="worker.id" placeholder="">
 							<div class="control-group">
 								<label for="title" class="control-label">用户名：</label>
 								<div class="controls">
-									<input type="text" name="worker.name" placeholder="">
+									<input type="text" name="worker.username" placeholder="">
 								</div>
 							</div>
 							<div class="control-group">
@@ -123,33 +123,31 @@
 									<input type="text" name=worker.tel placeholder="">
 								</div>
 							</div>
+							
 							<div class="control-group">
-								<label for="title" class="control-label">照片：</label>
+								<label for="title" class="control-label">证件类型：</label>
 								<div class="controls">
-									<input type="file" name=imgPath placeholder="">
+								<select id="worker.cardtype" name="worker.cardtype">
+										<option value="身份证">身份证</option>
+										<option value="军官证">军官证</option>
+										<option value="学生证">学生证</option>
+										</select>
 								</div>
 							</div>
 							<div class="control-group">
-								<label for="title" class="control-label">入职日期：</label>
-								<div class="controls">
-									<div class="input-append date">
-										<input name="worker.joinDate" type="text" value="" readonly="readonly" style="width:80px;">
-										<span class="add-on"><i class="icon-th"></i></span>
-									</div>
+									<label for="title" class="control-label">证件号码：</label>
+									<div class="controls">
+									<input type="text" name=worker.cardid placeholder="">
 								</div>
 							</div>
+							
 							<div class="control-group">
-								<label for="title" class="control-label">职业：</label>
-								<div class="controls">
-									<input type="text" name=worker.type placeholder="">
+									<label for="title" class="control-label">地址：</label>
+									<div class="controls">
+									<input type="text" name=worker.addr placeholder="">
 								</div>
 							</div>
-							<div class="control-group">
-								<label for="title" class="control-label">个人简介：</label>
-								<div class="controls">
-									<input type="text" name=worker.remark placeholder="">
-								</div>
-							</div>
+							
 							<div class="control-group">
 								<div class="controls">
 									<button class='' type="submit">提交 </button>

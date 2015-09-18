@@ -45,7 +45,7 @@ public class ActionService {
                     public Predicate toPredicate(Root<Action> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                     Predicate predicate = cb.conjunction();
                     if (actionName != null) {
-                         predicate.getExpressions().add(cb.like(root.get("actionName").as(String.class), actionName+"%"));
+                         predicate.getExpressions().add(cb.like(root.get("name").as(String.class), "%"+actionName+"%"));
                     }
                     return predicate;
                     }
