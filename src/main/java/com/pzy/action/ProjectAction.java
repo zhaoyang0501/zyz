@@ -7,37 +7,50 @@ import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 
-import com.pzy.entity.News;
 import com.pzy.service.ActionService;
-import com.pzy.service.NewsService;
-/***
- * Introduction
- * @author panchaoyang
- *
- */
-@Namespace("/notice")
+
+@Namespace("/")
 @ParentPackage("json-default") 
 public class ProjectAction extends PageAction {
 	
-	private List<com.pzy.entity.Action> actions;
+	private Long id;
+	
+	private com.pzy.entity.Action project;
+	
+	private List<com.pzy.entity.Action> projects;
 	@Autowired
 	private ActionService actionService;
-
+	
 	@Action(value = "project", results = { @Result(name = "success", location = "/WEB-INF/views/project.jsp") })
-	public String project() {
-		actions = actionService.findAll();
+	public String park() {
+		projects = actionService.findAll();
 		return SUCCESS;
 	}
-
-	public List<com.pzy.entity.Action> getActions() {
-		return actions;
+	@Action(value = "projectdetail", results = { @Result(name = "success", location = "/WEB-INF/views/projectdetail.jsp") })
+	public String detail() {
+		project = actionService.find(id);
+		return SUCCESS;
+	}
+	public List<com.pzy.entity.Action> getProjects() {
+		return projects;
 	}
 
-	public void setActions(List<com.pzy.entity.Action> actions) {
-		this.actions = actions;
+	public void setProjects(List<com.pzy.entity.Action> projects) {
+		this.projects = projects;
 	}
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public com.pzy.entity.Action getProject() {
+		return project;
+	}
+	public void setProject(com.pzy.entity.Action project) {
+		this.project = project;
+	}
+
 	
 }

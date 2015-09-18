@@ -12,8 +12,6 @@ import javax.persistence.Transient;
 
 import org.apache.struts2.json.annotations.JSON;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 @Entity
 @Table(name = "t_action")
 public class Action {
@@ -31,6 +29,7 @@ public class Action {
 	private String addr;
 	private String tel;
 	private String remark;
+	private String state;
 	@Transient
 	private List<WorkerToAction> workToActions;
 	public List<WorkerToAction> getWorkToActions() {
@@ -95,5 +94,10 @@ public class Action {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 }

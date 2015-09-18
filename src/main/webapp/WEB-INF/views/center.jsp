@@ -1,164 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!DOCTYPE html>
-<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<!-- Basic Page Needs
-================================================== -->
-<meta charset="utf-8">
-<title> - Free Theme s& Templates</title>
-
-<!-- Mobile Specific
-================================================== -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<!-- CSS
-================================================== -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/boxed.css" id="layout">
-<link rel="stylesheet" type="text/css" href="css/colors/green.css" id="colors">
-
-<!-- Java Script
-================================================== -->
-<script src="js/jquery.min.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/selectnav.js"></script>
-<script src="js/flexslider.js"></script>
-<script src="js/twitter.js"></script>
-<script src="js/tooltip.js"></script>
-<script src="js/effects.js"></script>
-<script src="js/fancybox.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/isotope.js"></script>
-
-<!-- Styles Switcher
-================================================== -->
-<link rel="stylesheet" type="text/css" href="css/switcher.css">
-<script src="js/switcher.js"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script language="javaScript" type="text/javascript" src="js/jquery.js" ></script>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="css/pagination_new.css" />
+		<title>无锡商院大学生青年志愿者总会</title>
+		<link type="text/css" rel="stylesheet" href="pagination_new.css"  />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#_center").addClass("current");
+				if("${tip}" != null && "${tip}" != ""){
+					alert("${tip}");
+				}
+			});
+		</script>
 </head>
 <body>
-
-<!-- Wrapper Start -->
-<div id="wrapper">
-
-
-<!-- Header
-================================================== -->
-
-<!-- 960 Container -->
-<div class="container ie-dropdown-fix">
-	<!-- Header -->
-		<%@include file="./head.jsp" %>
-	<!-- Header / End -->
-	
-</div>
-<!-- 960 Container / End -->
-
-
-<!-- Content
-================================================== -->
-<div class="container">
-
-	<div class="sixteen columns">
-	
-		<!-- Page Title -->
-		<div id="page-title">
-			<h2>个人中心</h2>
-			<div id="bolded-line"></div>
-		</div>
-		<!-- Page Title / End -->
-
-	</div>
-</div>
-
-<div class="container">
-	
-	<c:if test="${tip!=null }">
-	<div class="sixteen columns">
-		<div class="notification success  closeable" style="margin: 5px 0 25px 0;">
-			<p>${tip}</p>
+	<div id="top">
+		<div class="banner">
+	        <div class="logo">
+	        </div>
 		</div>
 	</div>
-</c:if>
 
-	<!-- Contact Form -->
-	<div class="sixteen columns " >
-		<!-- Form -->
-		<div id="contact-form">
-			<form  action="${pageContext.request.contextPath}/doCenter" enctype="multipart/form-data" method="post">
-				
-				<div class="field">
-					<label>头像:</label>
-					<img src="upload/head/${user.headimg }" style="width: 100px">
-				</div>	
-				<div class="field">
-					<label>学号:</label>
-					<input type="text" name="user.id" class="text" value="${user.id }" readonly="readonly">
+	<div id="container">
+		<div class="mid">
+			<!-- 菜单 -->
+			<div class="nav">
+				<div class="left"></div>
+				<div class="mid">
+					<%@include file="./menu.jsp" %>
 				</div>
-				<div class="field">
-					<label>个人头像:</label>
-					<input type="file" name="imgPath" class="text" value="">
+				<div class="right"></div>
+			</div>
+			<!-- 面包屑 -->
+			<div class="address">
+				目前位置：<a href="" >首页</a><span>></span><span>志愿者中心</span>
+			</div>
+			<!-- 正文 -->
+			
+			<div class="readbox">
+					<div class="title">
+						<ul>
+							<li class="current">
+								<span><a href="javascript:void(0);">志愿者中心</a></span>
+							</li>
+						</ul>
+					</div>
+					<div class="view register">
+							<form action="doregister" id="registerForm" name="registerForm" method="post">
+							<div class="error">
+							</div>
+							<div class="class">
+								<b>志愿者信息</b>
+							</div>
+							<div class="form">
+								<ul>
+									
+									<li>
+										<div class="name">
+											<b>证件类型：</b>
+										</div>
+										
+										 <select class="size4" id="worker.cardtype" name="worker.cardtype"
+									style="font-family: SimSun; font-size: 12px;"><option
+											value="">----------------请选择----------------</option>
+										<option value="身份证">身份证</option>
+										<option value="军官证">军官证</option>
+										<option value="学生证">学生证</option>
+										</select>
+										
+										
+									</li>
+									<li>
+										<div class="name">
+											<b>证件号码：</b>
+										</div>
+										<input class="size1" type="text" id="worker.cardid" name="worker.cardid" />
+										
+									</li>
+									
+									<li>
+										<div class="name">
+											<b>用户名：</b>
+										</div>
+										<input class="size1" type="text" id="username" name="worker.username" readonly="readonly"/>
+									</li>
+									
+									<li>
+										<div class="name">
+											<b>姓名：</b>
+										</div>
+										<input class="size1" type="text" id="name" name="worker.name"/>
+									</li>
+									
+									<li>
+										<div class="name">
+											<b>登录密码：</b>
+										</div>
+										<input value='${sessionScope.user.addr}' class="size1" type="password" id="password" name="worker.password" autocomplete="off" style="font-family: Tahoma;"/>
+										<div class="notice">
+											密码长度为6－20个字符，字母区分大小写。密码不可以过于简单，可使用英文字母及数字以及特殊字符组合。
+										</div>
+									</li>
+									
+									<li>
+										<div class="name">
+											<b>性别：</b>
+										</div>
+										<input type="radio" name="worker.sex" checked="checked" value="男"/>
+										&nbsp;男&nbsp;&nbsp;
+										<input type="radio" name="worker.sex" value="女"/>
+										&nbsp;女
+									</li>
+									<li>
+										<div class="name">
+											<b class="blank">职业分类：</b>
+										</div> <select class="size4" id="job" name="worker.type"
+									style="font-family: SimSun; font-size: 12px;"><option
+											value="">----------------请选择----------------</option>
+										<option value="公务员">公务员</option>
+										<option value="教师">教师</option>
+										<option value="学生">学生</option>
+										<option value="军人">军人</option>
+										<option value="工人">工人</option>
+										<option value="农民">农民</option>
+										<option value="医务人员">医务人员</option>
+										<option value="科技人员">科技人员</option>
+										<option value="企事业单位行政/管理人员">企事业单位行政/管理人员</option>
+										<option value="退休人员">退休人员</option>
+										<option value="其它">其它</option></select>
+								</li>
+									<li>
+										<div class="name">
+											<b>手机：</b>
+										</div>
+										<input class="size1" type="text" id="phone" name="worker.tel"  value='${sessionScope.user.tel}'/>
+										<div class="notice">
+											例如：13912345678。可用于找回您的密码、接收活动短信等。
+										</div>
+									</li>
+									<li>
+										<div class="name">
+											<b>详细地址：</b>
+										</div>
+										<input class="size1" type="text" id="addr" name="worker.addr" value='${sessionScope.user.addr}'/>
+										
+									</li>
+									
+								</ul>
+							</div>
+							<input type="submit"  value="保存修改" style="margin: 15px 0px 0px 390px;"/>
+						</form>
+							
+							<div class="class">
+								<b>我的参与的活动</b>
+							</div>
+							<div class="form">
+								<table cellpadding="0" cellspacing="0" style="margin-top: 20px;margin-bottom: 20px;width: 100%">
+									<thead>
+										<tr style="background-color: #FBE6E5;">
+											<th height="30" class="td_style1 td_style2 td_style3">访客姓名</th>
+											<th  class="td_style1 td_style2">到访时间</th>
+											<th  class="td_style1 td_style2">来自</th>
+											<th  class="td_style1 td_style2">类别</th>
+											<th class="td_style1 td_style2">电话</th>
+											<th class="td_style1 td_style2">车牌</th>
+										</tr>
+									</thead>
+									<tbody id="activity_list">
+									<c:forEach items="${guests}" var="bean">
+									<tr>
+										  <td height="30" class="td_style1 td_style3">${bean.name }</td>
+										  <td align="center" class="td_style1">${bean.createDate }</td>
+										  <td align="center" class="td_style1">${bean.comefrom }</td>
+										  <td align="center" class="td_style1">${bean.type }</td>
+										  <td align="center" class="td_style1">${bean.phone }</td>
+										  <td align="center" class="td_style1">${bean.carno }</td>
+										</tr>
+									</c:forEach>
+									</tbody>
+								</table>
+							</div>
+							<div class="class">
+								<b>我的缴费</b>
+							</div>
+							<div class="form">
+								<table cellpadding="0" cellspacing="0" style="margin-top: 20px;margin-bottom: 20px;width: 100%">
+									<thead>
+										<tr style="background-color: #FBE6E5;">
+											<th height="30" class="td_style1 td_style2 td_style3">流水单据号</th>
+											<th  class="td_style1 td_style2">单据生成时间</th>
+											<th  class="td_style1 td_style2">单价</th>
+											<th  class="td_style1 td_style2">总价</th>
+											<th class="td_style1 td_style2">年份</th>
+											<th class="td_style1 td_style2">状态</th>
+										</tr>
+									</thead>
+									<tbody id="activity_list">
+									<c:forEach items="${costs}" var="bean">
+									<tr>
+										  <td height="30" class="td_style1 td_style3">${bean.id }</td>
+										  <td align="center" class="td_style1">${bean.createDate }</td>
+										  <td align="center" class="td_style1">${bean.price }</td>
+										  <td align="center" class="td_style1">${bean.cash }</td>
+										  <td align="center" class="td_style1">${bean.year }</td>
+										  <td align="center" class="td_style1">${bean.state }</td>
+										</tr>
+									</c:forEach>
+									</tbody>
+								</table>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="field">
-					<label>姓名:</label>
-					<input type="text" name="user.name" class="text" value="${user.name }">
-				</div>
-				<div class="field">
-					<label>密码:</label>
-					<input type="password" name="user.password" class="text"  value="${user.password }">
-				</div>
-				<div class="field">
-					<label>地址:</label>
-					<input type="text" name="user.address" class="text" value="${user.address }">
-				</div>
-				
-				<div class="field">
-					<label>电子邮件:</label>
-					<input type="text" name="user.email" class="text" value="${user.email }">
-				</div>
-				<div class="field">
-					<label>电话:</label>
-					<input type="text" name="user.tel" class="text" value="${user.tel }">
-				</div>
-				<div class="field">
-					<label>QQ:</label>
-					<input type="text" name="user.qq" class="text" value="${user.qq}">
-				</div>
-				<div class="field">
-					<label>微信:</label>
-					<input type="text" name="user.weixin" class="text" value="${user.weixin }">
-				</div>
-				<div class="field">
-					<label>工作单位:</label>
-					<input type="text" name="user.work" class="text" value="${user.work }">
-				</div>
-				<div class="field">
-					<label>性别:</label>
-					<input type="text" name="user.sex" class="text" value="${user.sex }">
-				</div>
-				<div class="field">
-					<label>个人简介:</label>
-					<textarea name='user.remark ' class="text textarea">${user.remark }</textarea>
-				</div>
-				<div class="field">
-					<input  class='button color medium' type="submit"  value="提交">
-				</div>
-			</form>
+			<!-- 正文 -->
+			
 		</div>
+		<div class="bot"></div>
 	</div>
-		
-</div>
-
-
-</div>
-<!-- Wrapper / End -->
 	<%@include file="./foot.jsp" %>
-
-
-</body>
+	</body>
 </html>

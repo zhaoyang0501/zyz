@@ -51,4 +51,8 @@ public class WorkerService {
      public void save(Worker Worker){
     	 workerRepository.save(Worker);
      }
+     public Worker login(String adminUserName,String password){
+    	 List<Worker> adminUsers=workerRepository.findByUsernameAndPassword(adminUserName, password);
+    	 return adminUsers.size()==0?null:adminUsers.get(0);
+     }
 }

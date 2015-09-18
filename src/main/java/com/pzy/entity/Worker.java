@@ -21,14 +21,40 @@ public class Worker {
 	private String password;
 	private String sex;
 	private String remark;
-	
 	private String tel;
 	private String headimg;
-	
 	private String type;
-	
-	private Date joinDate;
+	private String cardtype;
+	private String addr;
+	public String getAddr() {
+		return addr;
+	}
 
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+	public String getCardtype() {
+		return cardtype;
+	}
+
+	public void setCardtype(String cardtype) {
+		this.cardtype = cardtype;
+	}
+
+	public String getCardid() {
+		return cardid;
+	}
+
+	public void setCardid(String cardid) {
+		this.cardid = cardid;
+	}
+
+	private String cardid;
+
+	private Date joinDate;
+	
+	
 	public Long getId() {
 		return id;
 	}

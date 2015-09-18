@@ -24,13 +24,9 @@ public class MsgBoard {
 	private String msg;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	private User user;
+	private Worker user;
 	
 	private Date createDate;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Grades grades;
-	
 	@Transient
 	private List<MsgBoard> subMsg;
 	public List<MsgBoard> getSubMsg() {
@@ -41,12 +37,6 @@ public class MsgBoard {
 	}
 	public void setReplyfor(MsgBoard replyfor) {
 		this.replyfor = replyfor;
-	}
-	public Grades getGrades() {
-		return grades;
-	}
-	public void setGrades(Grades grades) {
-		this.grades = grades;
 	}
 	public Long getId() {
 		return id;
@@ -60,10 +50,10 @@ public class MsgBoard {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public User getUser() {
+	public Worker getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Worker user) {
 		this.user = user;
 	}
 	public Date getCreateDate() {

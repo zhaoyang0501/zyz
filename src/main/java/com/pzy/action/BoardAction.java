@@ -11,9 +11,8 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.pzy.entity.Grades;
 import com.pzy.entity.MsgBoard;
-import com.pzy.entity.User;
+import com.pzy.entity.Worker;
 import com.pzy.service.MsgBoardService;
 
 @ParentPackage("struts-default")  
@@ -25,8 +24,7 @@ public class BoardAction extends ActionSupport {
 	@Autowired
 	private MsgBoardService msgBoardService;
 	public String execute() throws Exception {
-		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
-		msgBoards=msgBoardService.findByGrades(grades);
+		msgBoards=msgBoardService.findAll();
 		return SUCCESS;
 	}
 	@Action(value = "saveMsgBoard", results = { @Result(name = "success",type="redirect", location = "board") })
@@ -34,10 +32,8 @@ public class BoardAction extends ActionSupport {
 		MsgBoard bean=new MsgBoard();
 		bean.setCreateDate(new Date());
 		bean.setMsg(msg);
-		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
-		Grades grades = (Grades) ServletActionContext.getRequest().getSession().getAttribute("grades");
+		Worker user = (Worker) ServletActionContext.getRequest().getSession().getAttribute("user");
 		bean.setUser(user);
-		bean.setGrades(grades);
 		if(replyfor.getId()!=null)
 			bean.setReplyfor(msgBoardService.findOne(replyfor.getId()));
 		msgBoardService.save(bean);

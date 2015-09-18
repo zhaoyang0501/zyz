@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pzy.entity.Grades;
 import com.pzy.entity.MsgBoard;
 import com.pzy.repository.MsgBoardRepository;
 
@@ -21,11 +20,11 @@ public class MsgBoardService {
 		public void save(MsgBoard msgBoard){
 			msgBoardRepository.save(msgBoard);
 		}
-		public List<MsgBoard> findByGrades(Grades grades){
-			List<MsgBoard> list= msgBoardRepository.findByGrades(grades);
-			this.addSubMsg(list);
-			return list;
+		
+		public List<MsgBoard> findAll(){
+			return (List<MsgBoard>)msgBoardRepository.findAll();
 		}
+		
 		private void addSubMsg( List<MsgBoard> list){
 			if(list!=null&&list.size()!=0){
 				for(MsgBoard bean:list){
