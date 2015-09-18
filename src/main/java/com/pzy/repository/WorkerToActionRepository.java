@@ -10,5 +10,6 @@ import com.pzy.entity.WorkerToAction;
 public interface WorkerToActionRepository extends PagingAndSortingRepository<WorkerToAction, Long>,JpaSpecificationExecutor<WorkerToAction>{
  public List<WorkerToAction> findByWorker(Worker worker);
  public List<WorkerToAction> findByAction(Action action);
+ public List<WorkerToAction> findByActionAndWorker(Action action,Worker worker);
 }
 

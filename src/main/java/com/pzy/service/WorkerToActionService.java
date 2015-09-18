@@ -21,6 +21,9 @@ public class WorkerToActionService {
      public List<WorkerToAction> findByAction(Action action){
     	 return this.workerToActionRepository.findByAction(action);
      }
+     public List<WorkerToAction> findByActionAndWorker(Action action,Worker worker){
+    	 return this.workerToActionRepository.findByActionAndWorker(action, worker);
+     }
      public void delete(Long id){
           workerToActionRepository.delete(id);
      }

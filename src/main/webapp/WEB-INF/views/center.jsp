@@ -80,7 +80,7 @@
 										<div class="name">
 											<b>证件号码：</b>
 										</div>
-										<input class="size1" type="text" id="worker.cardid" name="worker.cardid" />
+										<input value='${sessionScope.user.cardid}'  class="size1" type="text" id="worker.cardid" name="worker.cardid" />
 										
 									</li>
 									
@@ -88,21 +88,21 @@
 										<div class="name">
 											<b>用户名：</b>
 										</div>
-										<input class="size1" type="text" id="username" name="worker.username" readonly="readonly"/>
+										<input value='${sessionScope.user.username}'  class="size1" type="text" id="username" name="worker.username" readonly="readonly"/>
 									</li>
 									
 									<li>
 										<div class="name">
 											<b>姓名：</b>
 										</div>
-										<input class="size1" type="text" id="name" name="worker.name"/>
+										<input value='${sessionScope.user.name}' class="size1" type="text" id="name" name="worker.name"/>
 									</li>
 									
 									<li>
 										<div class="name">
 											<b>登录密码：</b>
 										</div>
-										<input value='${sessionScope.user.addr}' class="size1" type="password" id="password" name="worker.password" autocomplete="off" style="font-family: Tahoma;"/>
+										<input value='${sessionScope.user.password}' class="size1" type="password" id="password" name="worker.password" autocomplete="off" style="font-family: Tahoma;"/>
 										<div class="notice">
 											密码长度为6－20个字符，字母区分大小写。密码不可以过于简单，可使用英文字母及数字以及特殊字符组合。
 										</div>
@@ -164,58 +164,28 @@
 								<table cellpadding="0" cellspacing="0" style="margin-top: 20px;margin-bottom: 20px;width: 100%">
 									<thead>
 										<tr style="background-color: #FBE6E5;">
-											<th height="30" class="td_style1 td_style2 td_style3">访客姓名</th>
-											<th  class="td_style1 td_style2">到访时间</th>
-											<th  class="td_style1 td_style2">来自</th>
-											<th  class="td_style1 td_style2">类别</th>
-											<th class="td_style1 td_style2">电话</th>
-											<th class="td_style1 td_style2">车牌</th>
+											<th height="30" class="td_style1 td_style2 td_style3">项目名称</th>
+											<th  class="td_style1 td_style2">项目地址</th>
+											<th  class="td_style1 td_style2">截止日期</th>
+											<th  class="td_style1 td_style2">活动人数</th>
+											<th class="td_style1 td_style2">参与日期</th>
+											<th class="td_style1 td_style2">查看</th>
 										</tr>
 									</thead>
 									<tbody id="activity_list">
-									<c:forEach items="${guests}" var="bean">
+									<c:forEach items="${workerToActions}" var="bean">
 									<tr>
-										  <td height="30" class="td_style1 td_style3">${bean.name }</td>
+										  <td height="30" class="td_style1 td_style3">${bean.action.name }</td>
+										  <td align="center" class="td_style1">${bean.action.addr }</td>
+										  <td align="center" class="td_style1">${bean.action.stopDate }</td>
+										  <td align="center" class="td_style1">${bean.action.needMan }</td>
 										  <td align="center" class="td_style1">${bean.createDate }</td>
-										  <td align="center" class="td_style1">${bean.comefrom }</td>
-										  <td align="center" class="td_style1">${bean.type }</td>
-										  <td align="center" class="td_style1">${bean.phone }</td>
-										  <td align="center" class="td_style1">${bean.carno }</td>
+										  <td align="center" class="td_style1"><a href="projectdetail?id=${bean.action.id }">查看</a> </td>
 										</tr>
 									</c:forEach>
 									</tbody>
 								</table>
 							</div>
-							<div class="class">
-								<b>我的缴费</b>
-							</div>
-							<div class="form">
-								<table cellpadding="0" cellspacing="0" style="margin-top: 20px;margin-bottom: 20px;width: 100%">
-									<thead>
-										<tr style="background-color: #FBE6E5;">
-											<th height="30" class="td_style1 td_style2 td_style3">流水单据号</th>
-											<th  class="td_style1 td_style2">单据生成时间</th>
-											<th  class="td_style1 td_style2">单价</th>
-											<th  class="td_style1 td_style2">总价</th>
-											<th class="td_style1 td_style2">年份</th>
-											<th class="td_style1 td_style2">状态</th>
-										</tr>
-									</thead>
-									<tbody id="activity_list">
-									<c:forEach items="${costs}" var="bean">
-									<tr>
-										  <td height="30" class="td_style1 td_style3">${bean.id }</td>
-										  <td align="center" class="td_style1">${bean.createDate }</td>
-										  <td align="center" class="td_style1">${bean.price }</td>
-										  <td align="center" class="td_style1">${bean.cash }</td>
-										  <td align="center" class="td_style1">${bean.year }</td>
-										  <td align="center" class="td_style1">${bean.state }</td>
-										</tr>
-									</c:forEach>
-									</tbody>
-								</table>
-							</div>
-						</form>
 					</div>
 				</div>
 			<!-- 正文 -->
