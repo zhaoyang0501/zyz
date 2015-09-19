@@ -22,6 +22,7 @@ import com.pzy.service.WorkerService;
 public class IndexAction extends ActionSupport implements SessionAware{
 	private Map<String,Object> session;
 	private List<News> newss;
+	private List<News> notice;
 	private String tip;
 	private Worker worker;
 	@Autowired
@@ -32,7 +33,8 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	
 	@Action(value = "index", results = { @Result(name = "success", location = "/WEB-INF/views/index.jsp") })
 	public String index() throws Exception {
-		newss=newsService.findTop3();
+		newss=newsService.findAll(1, 10, 1).getContent();
+		notice=newsService.findAll(1, 10, 2).getContent();
 		return SUCCESS;
 	}
 	@Action(value = "apply", results = { @Result(name = "success", location = "/WEB-INF/views/apply.jsp") })
@@ -47,7 +49,8 @@ public class IndexAction extends ActionSupport implements SessionAware{
      public String loginout(){
 	 	ActionContext.getContext().getSession().remove("user");
 	 	ActionContext.getContext().getSession().clear();
-		newss=newsService.findTop3();
+	 	newss=newsService.findAll(1, 10, 1).getContent();
+		notice=newsService.findAll(1, 10, 2).getContent();
 	 	tip="成功退出登陆";
 	 	return SUCCESS;
      }
@@ -60,13 +63,15 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	    		session.put("user",bean );
 	    		ActionContext.getContext().getSession().put("user", bean);
 	    		this.tip="登录成功!";
-	    		newss=newsService.findTop3();
+	    		newss=newsService.findAll(1, 10, 1).getContent();
+	    		notice=newsService.findAll(1, 10, 2).getContent();
 	            return SUCCESS; 
 	    	}
 	    	else{
 	    		ActionContext.getContext().getSession().clear();
 	    		this.tip="登陆失败 不存在此用户名或密码!";
-	    		newss=newsService.findTop3();
+	    		newss=newsService.findAll(1, 10, 1).getContent();
+	    		notice=newsService.findAll(1, 10, 2).getContent();
 	    		return LOGIN;
 	    	}
 	    } 
@@ -77,7 +82,8 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	}
 	@Action(value = "doregister", results = { @Result(name = "success", location = "/WEB-INF/views/index.jsp") })
 	public String doregister() throws Exception {
-		newss=newsService.findTop3();
+		newss=newsService.findAll(1, 10, 1).getContent();
+		notice=newsService.findAll(1, 10, 2).getContent();
 		workerService.save(worker);
 		tip="注册成功！";
 		return SUCCESS;
@@ -110,5 +116,11 @@ public class IndexAction extends ActionSupport implements SessionAware{
 	}
 	public Map<String, Object> getSession() {
 		return session;
+	}
+	public List<News> getNotice() {
+		return notice;
+	}
+	public void setNotice(List<News> notice) {
+		this.notice = notice;
 	}
 }

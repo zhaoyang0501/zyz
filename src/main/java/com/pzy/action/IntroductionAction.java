@@ -24,7 +24,7 @@ public class IntroductionAction extends PageAction {
 
 	@Action(value = "introduction", results = { @Result(name = "success", location = "/WEB-INF/views/introduction.jsp") })
 	public String introduction() {
-		Page<News> list = newsService.findAll(page, 15,2);
+		Page<News> list = newsService.findAll(page, 15,3);
 		newss=list.getContent();
 		return SUCCESS;
 	}
