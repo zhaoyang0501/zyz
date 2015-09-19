@@ -63,7 +63,6 @@ public class ProjectAction extends PageAction {
 			tip="成功参与改项目！";
 			return SUCCESS;
 		}
-		
 	}
 	public List<com.pzy.entity.Action> getProjects() {
 		return projects;

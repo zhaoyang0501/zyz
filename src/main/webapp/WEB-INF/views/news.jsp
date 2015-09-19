@@ -39,11 +39,11 @@
 			</div>
 			<!-- 面包屑 -->
 			<div class="address">
-				目前位置：<a href="" >首页</a><span>></span><span>小区新闻</span>
+				目前位置：<a href="" >首页</a><span>></span><span>新闻动态</span>
 			</div>
 			<!-- 正文 -->
 			<div class="readbox">
-				<div class="title"><span>小区新闻</span></div>
+				<div class="title"><span>新闻动态</span></div>
 				<div class="view">
 					<div class="list" id="dataList">
 						<ul>
