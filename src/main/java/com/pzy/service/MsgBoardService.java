@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.pzy.entity.MsgBoard;
 import com.pzy.repository.MsgBoardRepository;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @Service
 public class MsgBoardService {
 		

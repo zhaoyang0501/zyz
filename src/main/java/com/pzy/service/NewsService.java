@@ -19,7 +19,11 @@ import org.springframework.stereotype.Service;
 
 import com.pzy.entity.News;
 import com.pzy.repository.NewsRepository;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @Service
 public class NewsService {
      @Autowired

@@ -16,7 +16,11 @@ import com.pzy.entity.News;
 import com.pzy.entity.Worker;
 import com.pzy.service.NewsService;
 import com.pzy.service.WorkerService;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @ParentPackage("struts-default")  
 @Namespace("/")
 public class IndexAction extends ActionSupport implements SessionAware{

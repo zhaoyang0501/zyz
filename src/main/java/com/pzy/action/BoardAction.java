@@ -14,7 +14,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.pzy.entity.MsgBoard;
 import com.pzy.entity.Worker;
 import com.pzy.service.MsgBoardService;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @ParentPackage("struts-default")  
 @Namespace("/")
 public class BoardAction extends ActionSupport {

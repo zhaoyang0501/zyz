@@ -13,7 +13,11 @@ import com.pzy.entity.Worker;
 import com.pzy.entity.WorkerToAction;
 import com.pzy.service.WorkerService;
 import com.pzy.service.WorkerToActionService;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @Namespace("/")
 @ParentPackage("json-default") 
 public class CenterAction extends PageAction {

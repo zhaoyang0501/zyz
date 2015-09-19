@@ -11,7 +11,11 @@ import org.springframework.data.domain.Page;
 
 import com.pzy.entity.News;
 import com.pzy.service.NewsService;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @Namespace("/")
 @ParentPackage("json-default") 
 public class IntroductionAction extends PageAction {

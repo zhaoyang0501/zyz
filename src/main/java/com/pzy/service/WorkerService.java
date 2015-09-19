@@ -18,7 +18,11 @@ import org.springframework.stereotype.Service;
 
 import com.pzy.entity.Worker;
 import com.pzy.repository.WorkerRepository;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 @Service
 public class WorkerService {
      @Autowired

@@ -6,7 +6,11 @@ import java.util.Map;
 import org.apache.struts2.json.annotations.JSON;
 
 import com.opensymphony.xwork2.ActionSupport;
-
+/***
+ * 
+ * @author qq:263608237
+ *
+ */
 public class PageAction extends ActionSupport {
 	private static final long serialVersionUID = -5836384121185061691L;
 	private Integer sEcho = 1;

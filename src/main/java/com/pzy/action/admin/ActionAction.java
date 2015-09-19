@@ -1,12 +1,8 @@
 package com.pzy.action.admin;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
+import java.security.acl.Owner;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -15,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 
 import com.pzy.action.PageAction;
-import com.pzy.entity.Owner;
 import com.pzy.service.ActionService;
-import com.pzy.service.OwnerService;
 
 @Namespace("/admin/action")
 @ParentPackage("json-default") 
@@ -26,20 +20,7 @@ public class ActionAction extends PageAction {
 	private Long id;
 	private com.pzy.entity.Action action;
 	private List<com.pzy.entity.Action> actions;
-	private List<Owner> owners;
 	private String tip;
-
-
-	public OwnerService getOwnerService() {
-		return ownerService;
-	}
-
-
-	public void setOwnerService(OwnerService ownerService) {
-		this.ownerService = ownerService;
-	}
-
-
 	public ActionService getActionService() {
 		return actionService;
 	}
@@ -50,8 +31,6 @@ public class ActionAction extends PageAction {
 	}
 
 
-	@Autowired
-	private OwnerService ownerService;
 	@Autowired
 	private ActionService actionService;
 	@Autowired
@@ -155,13 +134,5 @@ public class ActionAction extends PageAction {
 		this.actions = actions;
 	}
 
-	public List<Owner> getOwners() {
-		return owners;
-	}
-
-
-	public void setOwners(List<Owner> owners) {
-		this.owners = owners;
-	}
-
+	
 }

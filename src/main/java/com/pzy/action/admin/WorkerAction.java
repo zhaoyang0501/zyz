@@ -1,12 +1,8 @@
 package com.pzy.action.admin;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -16,9 +12,7 @@ import org.springframework.data.domain.Page;
 
 import com.pzy.action.PageAction;
 import com.pzy.entity.Worker;
-import com.pzy.entity.Owner;
 import com.pzy.service.WorkerService;
-import com.pzy.service.OwnerService;
 
 @Namespace("/admin/worker")
 @ParentPackage("json-default") 
@@ -27,7 +21,6 @@ public class WorkerAction extends PageAction {
 	private Long id;
 	private Worker worker;
 	private List<Worker> workers;
-	private List<Owner> owners;
 	private String tip;
 	
 	
@@ -52,14 +45,6 @@ public class WorkerAction extends PageAction {
 	}
 
 
-	public OwnerService getOwnerService() {
-		return ownerService;
-	}
-
-
-	public void setOwnerService(OwnerService ownerService) {
-		this.ownerService = ownerService;
-	}
 
 
 	public WorkerService getWorkerService() {
@@ -71,9 +56,6 @@ public class WorkerAction extends PageAction {
 		this.workerService = workerService;
 	}
 
-
-	@Autowired
-	private OwnerService ownerService;
 	@Autowired
 	private WorkerService workerService;
 	@Autowired
@@ -175,14 +157,6 @@ public class WorkerAction extends PageAction {
 		this.workers = workers;
 	}
 
-	public List<Owner> getOwners() {
-		return owners;
-	}
-
-
-	public void setOwners(List<Owner> owners) {
-		this.owners = owners;
-	}
 	
 	public File getImgPath() {
 		return imgPath;
