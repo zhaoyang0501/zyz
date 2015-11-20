@@ -51,13 +51,13 @@
 									<li><a
 										href="#"
 										target='_blank'><img
-											src='images/t2.jpg'
+											src='images/4.jpg'
 											width='508' height='287'
 											onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'" /></a></li>
 									<li><a
 										href="#"
 										target='_blank'><img
-											src='images/t3.png'
+											src='images/1.jpg'
 											width='508' height='287'
 											onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'" /></a></li>
 								</ul>
@@ -76,11 +76,11 @@
 									width='157' height='93'
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'" /><span></span></li>
 								<li class='normal'><img
-									src='images/t2.jpg'
+									src='images/4.jpg'
 									width='157' height='93'
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'" /><span></span></li>
 								<li class='normal'><img
-									src='images/t3.png'
+									src='images/1.jpg'
 									width='157' height='93'
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'" /><span></span></li>
 							</ul>
@@ -114,7 +114,7 @@
 							<li><a
 								href="/wxzyz/Docs/news/1/html/1278463/20150730143848650.shtml"
 								target="_blank"><img
-									src="http://www.wuxizyz.gov.cn/wxzyz/upload/web_1/image/20150730143848650/20150730144240666.png"
+									src="images/2.jpg"
 									title="诸海燕：热心社区..." alt="诸海燕：热心社区..." width="150" height="113"
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'"></a><a
 								href="/wxzyz/Docs/news/1/html/1278463/20150730143848650.shtml"
@@ -122,7 +122,7 @@
 							<li><a
 								href="/wxzyz/Docs/news/1/html/1278463/20150713165342386.shtml"
 								target="_blank"><img
-									src="http://www.wuxizyz.gov.cn/wxzyz/upload/web_1/image/20150713165342386/20150713165519722.png"
+									src="images/3.jpg"
 									title="82岁的老爷爷感动市民" alt="82岁的老爷爷感动市民" width="150" height="113"
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'"></a><a
 								href="/wxzyz/Docs/news/1/html/1278463/20150713165342386.shtml"
@@ -130,7 +130,7 @@
 							<li><a
 								href="/wxzyz/Docs/news/1/html/1278463/20130527103424253.shtml"
 								target="_blank"><img
-									src="http://www.wuxizyz.gov.cn/wxzyz/upload/web_1/image/20130527103424253/20130527104017548.jpg"
+									src="images/5.jpg"
 									title="无锡市惠山区长乐..." alt="无锡市惠山区长乐..." width="150" height="113"
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'"></a><a
 								href="/wxzyz/Docs/news/1/html/1278463/20130527103424253.shtml"
@@ -138,7 +138,7 @@
 							<li><a
 								href="/wxzyz/Docs/news/1/html/1278463/20130520104736425.shtml"
 								target="_blank"><img
-									src="http://www.wuxizyz.gov.cn/wxzyz/upload/web_1/image/20130520104736425/20130520104901794.jpg"
+									src="images/6.jpg"
 									title="锡山区志愿者雨天..." alt="锡山区志愿者雨天..." width="150" height="113"
 									onerror="this.onerror=null;this.src='/wxzyz/app/images/nopic.gif'"></a><a
 								href="/wxzyz/Docs/news/1/html/1278463/20130520104736425.shtml"
@@ -209,12 +209,12 @@
 
 
 <div class="box">
-							<div class="title">
+							<div class="title" >
 								<span class="current">通知公告</span>
 								<a class="more" href="notice">[更多]</a>
 							</div>
 							<div class="inner">
-								<div class="list" style="height:130px;">
+								<div class="list" style="height:250px;">
 								<c:forEach items="${notice}" var="bean" end="3">
 								<li><a
 									href="detail?id=${bean.id}"
